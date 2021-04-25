@@ -15,7 +15,7 @@ class InputNumber extends React.Component {
   }
 
   breakValue(val) {
-    const a = 5;
+    const a = 7;
     console.log(a)
     const { config, value, onChange, onInput, onFocus, onBlur, addonAfter, className } = this.props;
      let newVal = val;
