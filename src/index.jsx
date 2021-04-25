@@ -15,6 +15,8 @@ class InputNumber extends React.Component {
   }
 
   breakValue(val) {
+    const a = 3;
+    console.log(a)
     const { config, value, onChange, onInput, onFocus, onBlur, addonAfter, className } = this.props;
      let newVal = val;
     if (config.max > 0 && val > parseFloat(config.max)) {
@@ -67,7 +69,7 @@ class InputNumber extends React.Component {
   };
 
   handleBlur (e) {
-    const { config, value, onChange, onInput, onFocus, onBlur, addonAfter, className } = this.props;
+    const {  value, onChange, onBlur } = this.props;
     const val = this.filter(value);
     onChange(val);
     // 事件源要传递 不然value会丢
@@ -75,7 +77,6 @@ class InputNumber extends React.Component {
   };
 
   getFocusIndex(element) {
-    const { config, value, onChange, onInput, onFocus, onBlur, addonAfter, className } = this.props;
     const val = element.state.value; // ? 去空格
     let index = val.length;
     if (element.input.setSelectionRange) {
@@ -93,7 +94,7 @@ class InputNumber extends React.Component {
   };
 
   handleChange (e) {
-    const { config, value, onChange, onInput, onFocus, onBlur, addonAfter, className } = this.props;
+    const { config, onChange, onInput } = this.props;
     let minus = '';
     let integer = '';
     let decimal = '';
@@ -132,16 +133,13 @@ class InputNumber extends React.Component {
   };
 
   render() {
-    const { config, value, onChange, onInput, onFocus, onBlur, addonAfter, className } = this.props;
+    const { config, onChange, onInput, onFocus, onBlur, ...restProps } = this.props;
     return <Input
       ref={inputRef}
       onChange={this.handleChange}
-      value={value}
-      addonAfter={addonAfter}
-      onFocus={onFocus}
       onBlur={this.handleBlur}
-      className={className}
       autoComplete="off"
+      {...restProps}
     />
   }
 }

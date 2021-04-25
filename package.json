@@ -1,6 +1,6 @@
 {
   "name": "number-input-antd",
-  "version": "1.0.7",
+  "version": "1.0.9",
   "description": "数字输入框",
   "main": "dist/index.js",
   "scripts": {
